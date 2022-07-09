@@ -64,15 +64,44 @@ public class CharecterStat : MonoBehaviour
     public bool IsFaint = false;
     public bool IsBurn = false;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Ä³¸¯ÅÍ ½ºÅÈ")]
+    [SerializeField]
+    private int maxhp = 0;
+    public int MAXHP
     {
-        
+        get
+        {
+            return maxhp;
+        }
+        set
+        {
+            maxhp = value;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private int curhp = 0;
+    public int CURHP
     {
-        
+        get
+        {
+            return curhp;
+        }
+        set
+        {
+            curhp = value;
+        }
+    }
+
+    // Start is called before the first frame update
+    public virtual void Awake()
+    {
+        CharacterSetting();
+    }
+
+    public virtual void CharacterSetting()
+    {
+        MAXHP = HP_STATE * 100;
+        CURHP = MAXHP;
     }
 }

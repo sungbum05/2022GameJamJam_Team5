@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : CharecterStat
-{  
+{
     // Start is called before the first frame update
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
     void Start()
     {
         
@@ -14,5 +19,10 @@ public class Player : CharecterStat
     void Update()
     {
         
+    }
+
+    public override void CharacterSetting()
+    {
+        base.CharacterSetting();
     }
 }
