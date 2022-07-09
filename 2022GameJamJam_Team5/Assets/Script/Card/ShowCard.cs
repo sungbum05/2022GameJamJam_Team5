@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ShowCard : CardData
 {
@@ -11,23 +12,46 @@ public class ShowCard : CardData
     [SerializeField]
     float UnPickPos = -2.5f;
 
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator Draw()
     {
+        yield return null;
+        Debug.Log("Draw");
 
+        while (true)
+        {
+            yield return null;
+
+            this.gameObject.transform.DOMove(new Vector2(this.gameObject.transform.position.x, -2.5f), 0.7f);
+
+            if(this.gameObject.transform.position.y > -2.51f)
+            {
+                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, -2.5f);
+                break;
+            }   
+        }
+        Debug.Log("DrawEnd");
+        //StopCoroutine(Draw());
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator Insert()
     {
-        if (IsPick)
+        yield return null;
+
+        Debug.Log("Insert");
+
+        while (true)
         {
-            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, PickPos);
+            yield return null;
+
+            this.gameObject.transform.DOMove(new Vector2(this.gameObject.transform.position.x, -7.0f), 0.7f);
+
+            if (this.gameObject.transform.position.y < -6.9f)
+            {
+                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, -7.0f);
+                break;
+            }
         }
 
-        else
-        {
-            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, UnPickPos);
-        }
+        //StopCoroutine(Insert());
     }
 }
