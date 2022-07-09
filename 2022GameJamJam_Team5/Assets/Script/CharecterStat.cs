@@ -12,7 +12,12 @@ public enum CharacterType
 [SerializeField]
 public class CharecterStat : MonoBehaviour
 {
+    [Header("외부 속성")]
+    public InGameMgr InGameMgr;
+
     [Header("기본 스탯")]
+    public string Name;
+    public Sprite CharecterImg;
     public CharacterType Type;
 
     //체력 프로퍼티
@@ -91,6 +96,9 @@ public class CharecterStat : MonoBehaviour
         set
         {
             curhp = value;
+
+            if(curhp > maxhp)
+                curhp = maxhp;
         }
     }
 
@@ -104,5 +112,17 @@ public class CharecterStat : MonoBehaviour
     {
         MAXHP = HP_STATE * 100;
         CURHP = MAXHP;
+
+        InGameMgr = GameObject.FindObjectOfType<InGameMgr>();
+    }
+
+    public virtual IEnumerator AttackPatton()
+    {
+        yield return null;
+    }
+
+    public virtual IEnumerator SpetialAttckPatton()
+    {
+        yield return null;
     }
 }

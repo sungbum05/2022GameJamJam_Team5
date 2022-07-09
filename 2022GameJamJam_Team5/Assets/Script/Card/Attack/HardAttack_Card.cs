@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HighRiskAttack_Card : CardData
+public class HardAttack_Card : CardData
 {
     private void Start()
     {
@@ -12,6 +12,8 @@ public class HighRiskAttack_Card : CardData
     public override void CardEffect()
     {
         base.CardEffect();
+
+        InGameMgr.Monster.CURHP -= 10 * InGameMgr.Player.POWER_STATE;
     }
 
     public override void CardBasicSetting()

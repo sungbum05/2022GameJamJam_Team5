@@ -13,7 +13,8 @@ public class NomalAttack_Card : CardData
     {
         base.CardEffect();
 
-        InGameMgr.Monster.CURHP -=  6 * InGameMgr.Player.POWER_STATE;
+        // È¿°ú
+        InGameMgr.Monster.CURHP -=  7 * InGameMgr.Player.POWER_STATE;
     }
 
     public override void CardBasicSetting()

@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ShowCard : CardData
+public class ShowCard : MonoBehaviour
 {
     [Header("Show카드 속성")]
-    public bool IsPick = false;
-    [SerializeField]
-    float PickPos = -2.0f;
-    [SerializeField]
-    float UnPickPos = -2.5f;
+    public Vector2 OriginPos = new Vector2(0, 0);
 
     public IEnumerator Draw()
     {
@@ -29,8 +25,8 @@ public class ShowCard : CardData
                 break;
             }   
         }
-        Debug.Log("DrawEnd");
-        //StopCoroutine(Draw());
+        
+        yield break;
     }
 
     public IEnumerator Insert()
@@ -52,6 +48,6 @@ public class ShowCard : CardData
             }
         }
 
-        //StopCoroutine(Insert());
+        yield break;
     }
 }

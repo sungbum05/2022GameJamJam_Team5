@@ -12,7 +12,9 @@ public class RecoverySkill_Card : CardData
     public override void CardEffect()
     {
         base.CardEffect();
-        Debug.Log("2");
+
+        // È¿°ú
+        InGameMgr.Player.CURHP += 7;
     }
 
     public override void CardBasicSetting()
