@@ -7,8 +7,7 @@ public enum CardType
     Attck, Skill ,Passive
 }
 
-[System.Serializable]
-public class CardData
+public class CardData : MonoBehaviour
 {
     [Header("외부 속성")]
     public InGameMgr InGameMgr;
@@ -25,13 +24,14 @@ public class CardData
     [Header("카드 이펙트 이미지")]
     public Sprite CardEffectImg;
 
-    CardData()
-    {
-        Debug.Log("asd");
-    }    
-
     public virtual void CardEffect()
     {
-        
+
+    }
+
+
+    public virtual void CardBasicSetting()
+    {
+        InGameMgr = GameObject.FindObjectOfType<InGameMgr>();
     }
 }
