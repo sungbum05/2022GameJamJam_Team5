@@ -29,7 +29,9 @@ public class InGameMgr : MonoBehaviour
     public GameObject PassiveImgAddSpace;
 
     [Header("적 공유 속성")]
-    public CharecterStat Monster;
+    public Text MonsterName;
+    public Monster Monster;
+    public GameObject MonsterInfoPanel;
 
     [Header("카드 공유 속성")]
     public List<CardData> CardDatas;
@@ -38,8 +40,12 @@ public class InGameMgr : MonoBehaviour
     public List<DrawCard> DrawCard;
 
     [Header("스테이지 정보")]
-    public List<CharecterStat> Stage1_Monsters;
-    public List<CharecterStat> Stage2_Monsters;
+    public UiMgr UiMgr;
+    public List<GameObject> Stage1_Monsters;
+    public List<GameObject> Stage2_Monsters;
+    public int StageCnt = 1;
+    public int StageMaxNum;
+    public int StageCurNum;
 
     #region 플레이어 주사위
     [Header("주사위 공유 속성")]
@@ -62,11 +68,37 @@ public class InGameMgr : MonoBehaviour
     public bool IsDiceSpin = false; // 다이스 스핀이 끝나 수가 정해졌는가?
     public bool IsUseCardEffect = false; // 사용 가능한 카드가 다 사용되었는가?
     public bool IsInsertCard = false; //사용 불가능 카드가 다시 들었갔는가?
+    public bool IsMonsterAttack = false; //몬스터가 공격을 했는가?
+
+    [Header("보상")]
+    public GameObject GiftCanvas;
+
+    [Header("이펙트")]
+    public Image MoveEffect;
+    public Image PoisionEffect;
+    public Image BurnEffect;
+    public Image HurtEffect;
+
+    public ParticleSystem HelingParticle;
+    public ParticleSystem PowerUpParticle;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(BattleStart());
+        StartCoroutine(MoveStart());
+    }
+
+    private void Update()
+    {
+        if (Player.CURHP <= 50)
+        {
+            HurtEffect.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            HurtEffect.gameObject.SetActive(false);
+        }
     }
 
     void ReLoadCard() // 언락 된 카드 추가
@@ -87,6 +119,8 @@ public class InGameMgr : MonoBehaviour
             int RandomData = Random.Range(0, AvailableCard.Count);
 
             DrawCard[i].DrawCardDatas = AvailableCard[RandomData];
+            DrawCard[i].ShowCards.GetComponent<SpriteRenderer>().sprite = AvailableCard[RandomData].CardImg;
+            DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.text = AvailableCard[RandomData].CardName;
         }
     }
 
@@ -95,6 +129,8 @@ public class InGameMgr : MonoBehaviour
         foreach (DrawCard Card in DrawCard)
         {
             Card.ShowCards.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            Card.ShowCards.GetComponent<ShowCard>().CardName.color = new Color(0, 0, 0, 1);
+
             Card.ShowCards.transform.rotation = Quaternion.Euler(Vector3.zero);
             Card.ShowCards.transform.position = Card.ShowCards.transform.GetComponent<ShowCard>().OriginPos;
 
@@ -105,7 +141,7 @@ public class InGameMgr : MonoBehaviour
         IsDiceSpin = false;
         IsUseCardEffect = false;
         IsInsertCard = false;
-
+        IsMonsterAttack = false;
     }
 
     IEnumerator CardDrawShow(CardDarwShowType Type)
@@ -113,10 +149,10 @@ public class InGameMgr : MonoBehaviour
         yield return null;
         float DrawTime = 0.3f;
 
-        CardInfoSetting();
-
         if (Type == CardDarwShowType.Draw)
         {
+            CardInfoSetting();
+
             for (int i = 0; i < DrawCard.Count; i++)
             {
                 StartCoroutine(DrawCard[i].ShowCards.GetComponent<ShowCard>().Draw());
@@ -170,6 +206,7 @@ public class InGameMgr : MonoBehaviour
                     yield return new WaitForSeconds(0.7f);
 
                     DrawCard[i].ShowCards.GetComponent<SpriteRenderer>().DOFade(0, 1f);
+                    DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
                     DrawCard[i].DrawCardDatas.CardEffect();
@@ -183,6 +220,7 @@ public class InGameMgr : MonoBehaviour
                     yield return new WaitForSeconds(0.7f);
 
                     DrawCard[i].ShowCards.GetComponent<SpriteRenderer>().DOFade(0, 1f);
+                    DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
                     DrawCard[i].DrawCardDatas.CardEffect();
@@ -198,6 +236,7 @@ public class InGameMgr : MonoBehaviour
                     yield return new WaitForSeconds(0.7f);
 
                     DrawCard[i].ShowCards.GetComponent<SpriteRenderer>().DOFade(0, 1f);
+                    DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
                     DrawCard[i].DrawCardDatas.CardEffect();
@@ -247,7 +286,7 @@ public class InGameMgr : MonoBehaviour
         float MaxDiceSpinTime = 0.15f;
         float CurDiceSpinTime = 0.0f;
 
-        float PlusSpinTime = 0.0025f;
+        float PlusSpinTime = 0.004f;
 
         int CurDiceEye = 0;
 
@@ -285,6 +324,50 @@ public class InGameMgr : MonoBehaviour
         yield break;
     }
     #endregion
+    IEnumerator MoveStart()
+    {
+        yield return null;
+
+        GameObject SpawnMonster = null;
+
+        switch (StageCnt)
+        {
+            case 1:
+                SpawnMonster = Instantiate(Stage1_Monsters[StageCurNum - 1], Stage1_Monsters[StageCurNum - 1].transform.position, Quaternion.identity);
+                SpawnMonster.transform.SetParent(Monster.transform);
+
+                break;
+
+            case 2:
+                SpawnMonster = Instantiate(Stage2_Monsters[StageCurNum - 1], Stage1_Monsters[StageCurNum - 1].transform.position, Quaternion.identity);
+                SpawnMonster.transform.SetParent(Monster.transform);
+
+                break;
+        }
+
+        SpawnMonster.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        SpawnMonster.GetComponent<SpriteRenderer>().DOFade(1, 1);
+        yield return new WaitForSeconds(1.0f);
+
+        MoveEffect.gameObject.SetActive(true);
+        MoveEffect.DOFade(1, 2);
+        yield return new WaitForSeconds(2.0f);
+
+        Monster.CurMonsterType = SpawnMonster.GetComponent<CharecterStat>();
+        MonsterName.text = Monster.CurMonsterType.Name;
+
+        MoveEffect.DOFade(0, 2);
+        yield return new WaitForSeconds(2.0f);
+        MoveEffect.gameObject.SetActive(false);
+
+        SpawnMonster.GetComponent<SpriteRenderer>().DOColor(Color.white, 1.0f);
+        MonsterInfoPanel.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(BattleStart());
+
+        yield break;
+    }
 
     IEnumerator BattleStart()
     {
@@ -295,9 +378,7 @@ public class InGameMgr : MonoBehaviour
         bool IsTwoStep = false;
         bool IsThreeStep = false;
         bool IsFourStep = false;
-
-        Monster = Stage1_Monsters[0];
-        StartCoroutine(Monster.AttackPatton());
+        bool IsFiveStep = false;
 
         while (true) // 카드 드로우 단계
         {
@@ -360,9 +441,103 @@ public class InGameMgr : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
+
+        while (true) // 몬스터 공격
+        {
+            yield return null;
+
+            if (Monster.CurMonsterType.CURHP > 0)
+            {
+                if (IsFiveStep == false)
+                {
+                    IsFiveStep = true;
+                    StartCoroutine(Monster.CurMonsterType.AttackPatton());
+                    yield return new WaitForSeconds(0.7f);
+
+                    IsMonsterAttack = true;
+
+                    Debug.Log("AttackMonster");
+                }
+
+                if (IsMonsterAttack == true)
+                {
+                    break;
+                }
+            }
+
+            else if (Monster.CurMonsterType.CURHP <= 0)
+            {
+                Debug.Log("Die");
+
+                if (IsFiveStep == false)
+                {
+                    IsFiveStep = true;
+                    Monster.CurMonsterType.gameObject.GetComponent<SpriteRenderer>().DOFade(0, 1);
+
+                    Monster.CurMonsterType = null;
+                    MonsterInfoPanel.SetActive(false);
+
+                    yield return new WaitForSeconds(1.0f);
+                    IsMonsterAttack = true;
+                }
+
+                if (IsMonsterAttack == true)
+                {
+                    GiftCanvas.SetActive(true);
+                    yield break;
+                }
+            }
+        }
+
+        Debug.Log("BattleContinue");
+
+        yield return new WaitForSeconds(0.2f);
+
+        PlayerLoopReset();
 
         StartCoroutine(BattleStart());
         yield break;
+    }
+
+    public void SelectMaxHpUP()
+    {
+        Player.HP_STATE += 1;
+
+        Player.CharacterSetting();
+
+        UiMgr.IsFirstSetting = false;
+        UiMgr.FirstPlayerHpSetting();
+
+        GiftCanvas.SetActive(false);
+
+        StageCurNum++;
+
+        if (StageCurNum > StageMaxNum)
+        {
+            StageCnt++;
+            StageCurNum = 1;
+        }
+
+        StartCoroutine(MoveStart());
+    }
+
+    public void SelectPowerUp()
+    {
+        Player.POWER_STATE += 1;
+
+        UiMgr.IsFirstSetting = false;
+
+        GiftCanvas.SetActive(false);
+
+        StageCurNum++;
+
+        if (StageCurNum > StageMaxNum)
+        {
+            StageCnt++;
+            StageCurNum = 1;
+        }
+
+        StartCoroutine(MoveStart());
     }
 }

@@ -13,7 +13,7 @@ public class HardAttack_Card : CardData
     {
         base.CardEffect();
 
-        InGameMgr.Monster.CURHP -= 10 * InGameMgr.Player.POWER_STATE;
+        InGameMgr.Monster.CurMonsterType.CURHP -= 30 * InGameMgr.Player.POWER_STATE;
     }
 
     public override void CardBasicSetting()

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class ShowCard : MonoBehaviour
 {
     [Header("Show카드 속성")]
     public Vector2 OriginPos = new Vector2(0, 0);
+    public Text CardName = null;
 
     public IEnumerator Draw()
     {

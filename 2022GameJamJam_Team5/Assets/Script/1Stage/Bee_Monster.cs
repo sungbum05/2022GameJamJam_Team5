@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Bee_Monster : CharecterStat
 {
-    // Start is called before the first frame update
-    void Start()
+    public override IEnumerator AttackPatton()
     {
-        
-    }
+        yield return null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Flower");
+        this.gameObject.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 0.5f);
+        InGameMgr.Player.CURHP -= 7 * POWER_STATE;
+
+        yield return new WaitForSeconds(0.3f);
+
+        this.gameObject.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.5f);
     }
 }

@@ -2,20 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : CharecterStat
+public class Monster : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public override IEnumerator AttackPatton()
-    {
-        return base.AttackPatton();
-    }
+    public CharecterStat CurMonsterType;
 }
