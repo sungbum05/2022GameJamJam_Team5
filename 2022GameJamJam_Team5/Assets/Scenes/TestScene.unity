@@ -306,7 +306,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508867}
         m_TargetAssemblyTypeName: BeeBackB, Assembly-CSharp
-        m_MethodName: OnBeeBackB
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -532,7 +532,10 @@ GameObject:
   - component: {fileID: 231508868}
   - component: {fileID: 231508871}
   - component: {fileID: 231508870}
+  - component: {fileID: 231508875}
+  - component: {fileID: 231508874}
   - component: {fileID: 231508872}
+  - component: {fileID: 231508873}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -729,6 +732,8 @@ MonoBehaviour:
   BeeB: {fileID: 613004691}
   FoxB: {fileID: 1950443525}
   StoneB: {fileID: 1058688212}
+  RaccoonB: {fileID: 1061159055}
+  WolfB: {fileID: 442317302}
 --- !u!114 &231508866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +751,8 @@ MonoBehaviour:
   BeeB: {fileID: 613004691}
   FoxB: {fileID: 1950443525}
   StoneB: {fileID: 1058688212}
+  RaccoonB: {fileID: 1061159055}
+  WolfB: {fileID: 442317302}
 --- !u!114 &231508867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,6 +770,8 @@ MonoBehaviour:
   ButterflyB: {fileID: 811702881}
   FoxB: {fileID: 1950443525}
   StoneB: {fileID: 1058688212}
+  RaccoonB: {fileID: 1061159055}
+  WolfB: {fileID: 442317302}
 --- !u!114 &231508868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,10 +785,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 886468350}
-  FlowerB: {fileID: 1545588222}
   ButterflyB: {fileID: 811702881}
   BeeB: {fileID: 613004691}
+  FlowerB: {fileID: 1545588222}
   StoneB: {fileID: 1058688212}
+  RaccoonB: {fileID: 1061159055}
+  WolfB: {fileID: 442317302}
 --- !u!114 &231508869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,10 +823,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 79583326}
-  FlowerB: {fileID: 1545588222}
   ButterflyB: {fileID: 811702881}
   BeeB: {fileID: 613004691}
   FoxB: {fileID: 1950443525}
+  FlowerB: {fileID: 1545588222}
+  RaccoonB: {fileID: 1061159055}
+  WolfB: {fileID: 442317302}
 --- !u!114 &231508871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,6 +867,142 @@ MonoBehaviour:
   StoneB: {fileID: 1058688212}
   RaccoonB: {fileID: 1061159055}
   FlowerB: {fileID: 1545588222}
+--- !u!114 &231508873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231508855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f4bc4c7c52ed45a141cb91cd455b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1058876152}
+  ButterflyB: {fileID: 811702881}
+  BeeB: {fileID: 613004691}
+  FoxB: {fileID: 1950443525}
+  StoneB: {fileID: 1058688212}
+  RaccoonB: {fileID: 1061159055}
+  FlowerB: {fileID: 1545588222}
+--- !u!114 &231508874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231508855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca31d50f5aa12a844aa29bb98bad7067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1944817339}
+  ButterflyB: {fileID: 811702881}
+  BeeB: {fileID: 613004691}
+  FoxB: {fileID: 1950443525}
+  StoneB: {fileID: 1058688212}
+  FlowerB: {fileID: 1545588222}
+  WolfB: {fileID: 442317302}
+--- !u!114 &231508875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231508855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef886cb089b2cf643a1223aceb2f5ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1944817339}
+  ButterflyB: {fileID: 811702881}
+  BeeB: {fileID: 613004691}
+  FoxB: {fileID: 1950443525}
+  StoneB: {fileID: 1058688212}
+  FlowerB: {fileID: 1545588222}
+  WolfB: {fileID: 442317302}
+--- !u!1 &233270921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233270922}
+  - component: {fileID: 233270924}
+  - component: {fileID: 233270923}
+  m_Layer: 5
+  m_Name: Text1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &233270922
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233270921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1473036272}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -359, y: 624}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &233270923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233270921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\uC77C\uBC18 \uBAAC\uC2A4\uD130"
+--- !u!222 &233270924
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233270921}
+  m_CullTransparentMesh: 1
 --- !u!1 &243971843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1347,7 @@ RectTransform:
   m_Children:
   - {fileID: 1058876153}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1248,7 +1397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 442317305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231508872}
+        m_TargetAssemblyTypeName: WolfB, Assembly-CSharp
+        m_MethodName: OnFlowerB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &442317305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,7 +1631,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508868}
         m_TargetAssemblyTypeName: FoxBackB, Assembly-CSharp
-        m_MethodName: OnFoxBackB
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1625,7 +1786,7 @@ RectTransform:
   m_Children:
   - {fileID: 448497997}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1676,9 +1837,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 231508864}
-        m_TargetAssemblyTypeName: BeeB, Assembly-CSharp
-        m_MethodName: OnBeeB
+      - m_Target: {fileID: 231508869}
+        m_TargetAssemblyTypeName: FoxB, Assembly-CSharp
+        m_MethodName: OnFlowerB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2098,9 +2259,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 231508868}
-        m_TargetAssemblyTypeName: FoxBackB, Assembly-CSharp
-        m_MethodName: OnFoxBackB
+      - m_Target: {fileID: 231508874}
+        m_TargetAssemblyTypeName: RaccoonBackB, Assembly-CSharp
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2180,7 +2341,7 @@ RectTransform:
   m_Children:
   - {fileID: 1389404628}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2649,7 +2810,7 @@ RectTransform:
   m_Children:
   - {fileID: 79583327}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2702,7 +2863,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508871}
         m_TargetAssemblyTypeName: StoneB, Assembly-CSharp
-        m_MethodName: OnStoneB
+        m_MethodName: OnFlowerB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2831,7 +2992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 433945b4020be444da477edb97193b63, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2881,7 +3042,7 @@ RectTransform:
   m_Children:
   - {fileID: 1944817340}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2931,7 +3092,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1061159058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231508875}
+        m_TargetAssemblyTypeName: RaccoonB, Assembly-CSharp
+        m_MethodName: OnFlowerB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1061159058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3054,7 +3227,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508866}
         m_TargetAssemblyTypeName: ButterflyBackB, Assembly-CSharp
-        m_MethodName: OnButterflyBackB
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3595,9 +3768,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 231508868}
-        m_TargetAssemblyTypeName: FoxBackB, Assembly-CSharp
-        m_MethodName: OnFoxBackB
+      - m_Target: {fileID: 231508873}
+        m_TargetAssemblyTypeName: WolfBackB, Assembly-CSharp
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3753,6 +3926,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 233270922}
+  - {fileID: 1878889746}
   - {fileID: 1959272655}
   - {fileID: 1545588223}
   - {fileID: 811702882}
@@ -3914,7 +4089,7 @@ RectTransform:
   m_Children:
   - {fileID: 1978402073}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4099,7 +4274,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508870}
         m_TargetAssemblyTypeName: StoneBackB, Assembly-CSharp
-        m_MethodName: OnFoxBackB
+        m_MethodName: OnFlowerBackB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4304,6 +4479,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867659822}
+  m_CullTransparentMesh: 1
+--- !u!1 &1878889745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878889746}
+  - component: {fileID: 1878889748}
+  - component: {fileID: 1878889747}
+  m_Layer: 5
+  m_Name: Text2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1878889746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878889745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1473036272}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -360, y: -330}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1878889747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878889745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\uBCF4\uC2A4 \uBAAC\uC2A4\uD130"
+--- !u!222 &1878889748
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878889745}
   m_CullTransparentMesh: 1
 --- !u!1 &1892914557
 GameObject:
@@ -4527,7 +4781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 82c98ca60983fcd4186aed3164a553b1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4577,7 +4831,7 @@ RectTransform:
   m_Children:
   - {fileID: 886468351}
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4630,7 +4884,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231508869}
         m_TargetAssemblyTypeName: FoxB, Assembly-CSharp
-        m_MethodName: OnFoxB
+        m_MethodName: OnFlowerB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4709,7 +4963,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1473036272}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
