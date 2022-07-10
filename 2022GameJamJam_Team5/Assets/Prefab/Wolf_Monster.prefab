@@ -96,11 +96,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InGameMgr: {fileID: 0}
-  Name: "\uB291\uB300"
+  Name: "\uB291\uB300(\uBCF4\uC2A4)"
   CharecterImg: {fileID: 21300000, guid: 433945b4020be444da477edb97193b63, type: 3}
   Type: 0
-  hp_state: 5
-  power_state: 3
+  hp_state: 10
+  power_state: 4
   agility_state: 1
   IsPoison: 0
   IsFaint: 0
