@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButterflyB : MonoBehaviour
+public class RaccoonB : MonoBehaviour
 {
     public GameObject Panel;
-    public GameObject FlowerB;
+    public GameObject ButterflyB;
     public GameObject BeeB;
     public GameObject FoxB;
     public GameObject StoneB;
-    public GameObject RaccoonB;
+    public GameObject FlowerB;
     public GameObject WolfB;
 
     public void OnFlowerB()
     {
         Panel.SetActive(true);
-        FlowerB.SetActive(false);
+        ButterflyB.SetActive(false);
         BeeB.SetActive(false);
         FoxB.SetActive(false);
         StoneB.SetActive(false);
-        RaccoonB.SetActive(false);
+        FlowerB.SetActive(false);
         WolfB.SetActive(false);
     }
 }

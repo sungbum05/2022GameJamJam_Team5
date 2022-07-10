@@ -9,6 +9,8 @@ public class FlowerB : MonoBehaviour
     public GameObject BeeB;
     public GameObject FoxB;
     public GameObject StoneB;
+    public GameObject RaccoonB;
+    public GameObject WolfB;
 
     public void OnFlowerB()
     {
@@ -17,5 +19,7 @@ public class FlowerB : MonoBehaviour
         BeeB.SetActive(false);
         FoxB.SetActive(false);
         StoneB.SetActive(false);
+        RaccoonB.SetActive(false);
+        WolfB.SetActive(false);
     }
 }
