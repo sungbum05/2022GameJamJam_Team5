@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class Wolf_Monster : CharecterStat
 {
+    private void Update()
+    {
+        if (CURHP <= 0)
+            SceneManager.LoadScene(3);
+    }
+
     public override IEnumerator AttackPatton()
     {
         yield return null;
