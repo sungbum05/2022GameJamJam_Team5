@@ -78,6 +78,7 @@ public class InGameMgr : MonoBehaviour
     public Image PoisionEffect;
     public Image BurnEffect;
     public Image HurtEffect;
+    public List<GameObject> HitEffects;
 
     public ParticleSystem HelingParticle;
     public ParticleSystem PowerUpParticle;
@@ -209,6 +210,28 @@ public class InGameMgr : MonoBehaviour
                     DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
+                    for (int j = 0; j <= 3; j++)
+                    {
+                        if (j == 0)
+                        {
+                            HitEffects[j].SetActive(true);
+                            yield return new WaitForSeconds(0.2f);
+                            SoundMgr.In.PlaySound("MP_Jab");
+                        }
+
+                        else if (j == 3)
+                            HitEffects[j - 1].SetActive(false);
+
+
+                        else if (j > 0)
+                        {
+                            HitEffects[j - 1].SetActive(false);
+                            HitEffects[j].SetActive(true);
+                            yield return new WaitForSeconds(0.2f);
+                            SoundMgr.In.PlaySound("MP_Jab");
+                        }
+                    }
+                    
                     DrawCard[i].DrawCardDatas.CardEffect();
                     break;
 
@@ -223,6 +246,7 @@ public class InGameMgr : MonoBehaviour
                     DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
+                    SoundMgr.In.PlaySound("MP_Magic Wand Noise");
                     DrawCard[i].DrawCardDatas.CardEffect();
                     break;
 
@@ -239,6 +263,7 @@ public class InGameMgr : MonoBehaviour
                     DrawCard[i].ShowCards.GetComponent<ShowCard>().CardName.DOFade(0, 1f);
                     yield return new WaitForSeconds(0.2f);
 
+                    SoundMgr.In.PlaySound("MP_Magic Wand Noise");
                     DrawCard[i].DrawCardDatas.CardEffect();
                     break;
             }
@@ -330,6 +355,12 @@ public class InGameMgr : MonoBehaviour
 
         GameObject SpawnMonster = null;
 
+        if (StageCnt == 1)
+            StageMaxNum = 3;
+
+        else; if (StageCnt == 2)
+            StageMaxNum = 4;
+
         switch (StageCnt)
         {
             case 1:
@@ -339,7 +370,7 @@ public class InGameMgr : MonoBehaviour
                 break;
 
             case 2:
-                SpawnMonster = Instantiate(Stage2_Monsters[StageCurNum - 1], Stage1_Monsters[StageCurNum - 1].transform.position, Quaternion.identity);
+                SpawnMonster = Instantiate(Stage2_Monsters[StageCurNum - 1], Stage2_Monsters[StageCurNum - 1].transform.position, Quaternion.identity);
                 SpawnMonster.transform.SetParent(Monster.transform);
 
                 break;
@@ -453,6 +484,7 @@ public class InGameMgr : MonoBehaviour
                 {
                     IsFiveStep = true;
                     StartCoroutine(Monster.CurMonsterType.AttackPatton());
+                    SoundMgr.In.PlaySound("MP_Right Hook");
                     yield return new WaitForSeconds(0.7f);
 
                     IsMonsterAttack = true;

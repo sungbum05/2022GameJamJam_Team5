@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5703087037214842855}
   - component: {fileID: 171582763002490798}
-  - component: {fileID: 5703087037214842854}
+  - component: {fileID: -6838277628431115856}
   m_Layer: 0
   m_Name: Fox_Monster
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5703087037214842854
+--- !u!114 &-6838277628431115856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,12 +92,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5703087037214842848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ef72d462e51164f80b508970788cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 06f9f6c63ebb23f41a7d621f462f609d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InGameMgr: {fileID: 0}
   Name: "\uC5EC\uC6B0"
-  CharecterImg: {fileID: 21300000, guid: a3f5254ef37b67649a799aec56fae8c3, type: 3}
+  CharecterImg: {fileID: 21300000, guid: cafe1743abccda44e98767eb1b084266, type: 3}
   Type: 0
   hp_state: 3
   power_state: 4
