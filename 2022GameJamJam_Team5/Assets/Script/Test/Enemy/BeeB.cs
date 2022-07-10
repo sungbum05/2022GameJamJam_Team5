@@ -5,17 +5,21 @@ using UnityEngine;
 public class BeeB : MonoBehaviour
 {
     public GameObject Panel;
-    public GameObject FlowerB;
     public GameObject ButterflyB;
+    public GameObject FlowerB;
     public GameObject FoxB;
     public GameObject StoneB;
+    public GameObject RaccoonB;
+    public GameObject WolfB;
 
-    public void OnBeeB()
+    public void OnFlowerB()
     {
         Panel.SetActive(true);
-        FlowerB.SetActive(false);
         ButterflyB.SetActive(false);
+        FlowerB.SetActive(false);
         FoxB.SetActive(false);
         StoneB.SetActive(false);
+        RaccoonB.SetActive(false);
+        WolfB.SetActive(false);
     }
 }
