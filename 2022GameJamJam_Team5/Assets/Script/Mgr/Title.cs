@@ -15,12 +15,9 @@ public class Title : MonoBehaviour
         StartCoroutine(ShowTitle());
     }
 
-    void Update()
+    public void GotoInGame()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("InGameScene");
-        }
+        SceneManager.LoadScene("InGameScene");
     }
 
     IEnumerator ShowTitle()
